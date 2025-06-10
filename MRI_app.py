@@ -9,6 +9,7 @@ from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
 from pytorch_grad_cam.utils.image import show_cam_on_image
 from ultralytics import YOLO
 import cv2
+import os 
 
 st.title("Brain Tumor Classification with YOLOv8 + Grad-CAM")
 
@@ -21,7 +22,7 @@ def load_model(path):
     torch_model.to(device)
     return torch_model, device
 
-model_path = "best.pt"
+model_path = os.path.join(os.getcwd(), "models", "best.pt")
 torch_model, device = load_model(model_path)
 
 uploaded_file = st.file_uploader("Upload MRI Image (jpg, png)", type=['jpg', 'jpeg', 'png'])
