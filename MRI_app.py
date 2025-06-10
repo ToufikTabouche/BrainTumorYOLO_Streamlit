@@ -22,7 +22,7 @@ def load_model(path):
     torch_model.to(device)
     return torch_model, device
 
-model_path = os.path.join(os.getcwd(), "models", "best.pt")
+model_path = "best.pt"
 torch_model, device = load_model(model_path)
 
 uploaded_file = st.file_uploader("Upload MRI Image (jpg, png)", type=['jpg', 'jpeg', 'png'])
